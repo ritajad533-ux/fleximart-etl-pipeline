@@ -97,3 +97,4 @@ db.products.aggregate([
     $sort: { avg_price: -1 }
   }
 ]);
+
