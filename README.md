@@ -1,28 +1,68 @@
-# FlexiMart ETL Pipeline
+# FlexiMart Data Architecture Project
 
-This repository contains a complete ETL pipeline for the FlexiMart e-commerce dataset.
+**Student Name:** Ritaja Sarkar  
+**Student ID:** bitsom_ba_25071066 
+**Email:** ritajad533@gmail.com  
+**Date:** January 2026  
 
-## Files Included
-- etl_pipeline.py – Python ETL script
-- data_quality_report.txt – Data quality metrics report
-- customers_raw.csv – Raw customer data
-- products_raw.csv – Raw product data
-- sales_raw.csv – Raw sales data
+---
+
+## Project Overview
+
+This project implements an end-to-end data architecture solution for the FlexiMart e-commerce platform. It includes an ETL pipeline for cleaning and loading CSV data into a relational database, NoSQL modeling using MongoDB for flexible product catalogs, and a star-schema-based data warehouse for analytical reporting and OLAP queries.
+
+---
+
+## Repository Structure
+
+
+---
 
 ## Technologies Used
-- Python (Pandas, SQLAlchemy)
-- MySQL / PostgreSQL
-- GitHub
 
-## ETL Overview
-- Extracts data from CSV files
-- Cleans and standardizes data
-- Loads data into relational database
-- Generates data quality report
+- Python 3.x, pandas, mysql-connector-python  
+- MySQL 8.0 / PostgreSQL  
+- MongoDB 6.0  
+- SQL (Joins, Aggregations, Window Functions)
 
-## How to Run
-1. Update database credentials in `etl_pipeline.py`
-2. Ensure database schema is created
-3. Run:
-   ```bash
-   python etl_pipeline.py
+---
+
+## Setup Instructions
+
+### Relational Database Setup
+
+```bash
+# Create databases
+mysql -u root -p -e "CREATE DATABASE fleximart;"
+mysql -u root -p -e "CREATE DATABASE fleximart_dw;"
+
+# Run ETL pipeline
+python part1-database-etl/etl_pipeline.py
+
+# Run business queries
+mysql -u root -p fleximart < part1-database-etl/business_queries.sql
+
+# Data warehouse setup
+mysql -u root -p fleximart_dw < part3-datawarehouse/warehouse_schema.sql
+mysql -u root -p fleximart_dw < part3-datawarehouse/warehouse_data.sql
+mysql -u root -p fleximart_dw < part3-datawarehouse/analytics_queries.sql
+mongosh < part2-nosql/mongodb_operations.js
+Key Learnings
+
+Built a complete ETL pipeline with data quality handling
+
+Learned relational modeling and normalization principles
+
+Implemented NoSQL document modeling for flexible schemas
+
+Designed a star schema for analytical workloads
+
+Wrote OLAP queries for business insights
+
+Challenges Faced
+
+Handling inconsistent and missing data
+Solved using pandas-based cleaning, validation, and deduplication logic.
+
+Managing multiple database paradigms
+Solved by separating transactional, NoSQL, and analytical workloads clearl
