@@ -1,13 +1,28 @@
 # FlexiMart ETL Pipeline
 
-This repository contains an ETL pipeline for the FlexiMart data engineering assignment.
+This repository contains a complete ETL pipeline for the FlexiMart e-commerce dataset.
 
-## Files
-- etl_pipeline.py
-- data_quality_report.txt
-- customers_raw.csv
-- products_raw.csv
-- sales_raw.csv
+## Files Included
+- etl_pipeline.py – Python ETL script
+- data_quality_report.txt – Data quality metrics report
+- customers_raw.csv – Raw customer data
+- products_raw.csv – Raw product data
+- sales_raw.csv – Raw sales data
 
-## Description
-The ETL pipeline reads raw CSV files, cleans data quality issues, loads the data into a relational database, and generates a data quality report.
+## Technologies Used
+- Python (Pandas, SQLAlchemy)
+- MySQL / PostgreSQL
+- GitHub
+
+## ETL Overview
+- Extracts data from CSV files
+- Cleans and standardizes data
+- Loads data into relational database
+- Generates data quality report
+
+## How to Run
+1. Update database credentials in `etl_pipeline.py`
+2. Ensure database schema is created
+3. Run:
+   ```bash
+   python etl_pipeline.py
